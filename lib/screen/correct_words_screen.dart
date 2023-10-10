@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-class MainScren extends StatefulWidget {
-  const MainScren({Key? key}) : super(key: key);
+
+class CorrectWordsScreen extends StatefulWidget {
+  const CorrectWordsScreen({Key? key}) : super(key: key);
 
   @override
-  State<MainScren> createState() => _MainScrenState();
+  State<CorrectWordsScreen> createState() => _CorrectWordsScreenState();
 }
 
-class _MainScrenState extends State<MainScren> {
+class _CorrectWordsScreenState extends State<CorrectWordsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +16,7 @@ class _MainScrenState extends State<MainScren> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          
+
         ),
       ),
     );
