@@ -9,6 +9,8 @@ def create_app():
     db.makeEnglishWordTable()
     db.makeEnglishSpeakTable()
     db.makeEnglishTipTable()
+    db.makeWrongWordTable()
+    db.showTables()
 
 
     ######################################## routers #####################################################################################################################
@@ -30,6 +32,6 @@ def create_app():
 
 
 if __name__ == "__main__":
-    create_app().run(host='0.0.0.0', port=50010)
+    create_app().run(host='0.0.0.0', port=50010, debug=True)
 
 

@@ -10,9 +10,9 @@ def connect_to_database():
     password = '1693'
 
     connection = pymysql.connect(
-        host,
-        user,
-        password
+        host=host,
+        user=user,
+        password=password
     )
     return connection
 
@@ -22,9 +22,9 @@ def connect_to_english_database():
     password = '1693'
 
     connection = pymysql.connect(
-        host,
-        user,
-        password,
+        host=host,
+        user=user,
+        password=password,
         database = 'english_word'
     )
     return connection
@@ -113,3 +113,46 @@ def makeEnglishTipTable():
     finally:
         cursor.close()
         connection.close()
+
+def makeWrongWordTable():
+    try:
+        connection = connect_to_english_database()
+        cursor = connection.cursor()
+
+        sql = '''
+            create table if not exists english_wrong_table(
+                id int primary key auto_increment,
+                english varchar(255) not null,
+                korea varchar(255) not null
+            );  
+        '''
+
+        cursor.execute(sql)
+
+        print('english_wrong 테이블이 정상적으로 생생되었습니다.')
+    except pymysql.Error as e:
+        print('에러 발생:', e)
+    finally:
+        cursor.close()
+        connection.close()
+
+def showTables():
+    try:
+        connection = connect_to_english_database()
+        cursor = connection.cursor()
+
+        sql = '''
+            show tables;
+        '''
+
+        cursor.execute(sql)
+        tables = cursor.fetchall()
+        print('테이블 내용은 조회 완료')
+        print(tables)
+    except pymysql.Error as e:
+        print('에러 발생:', e)
+    finally:
+        cursor.close()
+        connection.close()
+
+
