@@ -21,7 +21,7 @@ This Project's Purpose is making a learning English Sentence Application.
 
 ## 데이터베이스 설계
 
-- 영어 단어 테이블
+- 영어 단어 테이블 (english_word_table)
 
 | 필드이름    | 타입           | 설명            |
 |---------|--------------|---------------|
@@ -29,7 +29,7 @@ This Project's Purpose is making a learning English Sentence Application.
 | english | varchar(255) | 영어 단어         |
 |  korea  | varchar(255)| 한글 뜻|
 
-- 영어 회화 표현 테이블
+- 영어 회화 표현 테이블 (english_speak_table)
 
 | 필드이름    | 타입           | 설명             |
 |---------|--------------|----------------|
@@ -37,7 +37,7 @@ This Project's Purpose is making a learning English Sentence Application.
 | english | varchar(255) | 영어 회화 표현       |
 |  korea  | varchar(255)| 한글 뜻           |
 
-- 영어 회화 표현 팁 테이블
+- 영어 회화 표현 팁 테이블 (english_tip_table)
 
 | 필드이름        | 타입           | 설명             |
 |-------------|--------------|----------------|
@@ -45,7 +45,7 @@ This Project's Purpose is making a learning English Sentence Application.
 | tip         | varchar(255) | 회화 팁           |
 | description | varchar(255)| 설명             |
 
-- 틀린 단어 테이블
+- 틀린 단어 테이블 (english_wrong_table)
 
 | 필드이름    | 타입           | 설명             |
 |---------|--------------|----------------|

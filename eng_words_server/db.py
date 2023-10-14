@@ -1,4 +1,6 @@
 import pymysql
+import openpyxl
+import data_loader
 
 HOST = ''
 USER = ''
@@ -155,4 +157,79 @@ def showTables():
         cursor.close()
         connection.close()
 
+
+def insertWord():
+    word_list = data_loader.read_excel('./word.xlsx')
+    print('입력 할 데이터 리스트')
+    print(word_list)
+    try:
+        connection = connect_to_english_database()
+        cursor = connection.cursor()
+
+        for i in word_list:
+            sql = '''
+                insert into english_word_table(english, korea) values(%s, %s)
+            '''
+            cursor.execute(sql, i)
+
+        connection.commit()
+
+        print('word table에 데이터 추가 완료!')
+    except pymysql.Error as e:
+        print('에러 발생:', e)
+    finally:
+        cursor.close()
+        connection.close()
+
+def insertSpeakWord():
+    word_list = data_loader.read_excel('./sentence.xlsx')
+    print('입력 할 데이터 리스트')
+    print(word_list)
+    try:
+        connection = connect_to_english_database()
+        cursor = connection.cursor()
+
+        for i in word_list:
+            sql = '''
+                insert into english_speak_table(english, korea) values(%s, %s)
+            '''
+            cursor.execute(sql, i)
+
+        connection.commit()
+
+        print('word speak table에 데이터 추가 완료!')
+    except pymysql.Error as e:
+        print('에러 발생:', e)
+    finally:
+        cursor.close()
+        connection.close()
+
+def insertTipWord():
+    word_list = data_loader.read_excel('./tip.xlsx')
+    print('입력 할 데이터 리스트')
+    print(word_list)
+    try:
+        connection = connect_to_english_database()
+        cursor = connection.cursor()
+
+        for i in word_list:
+            sql = '''
+                insert into english_tip_table(tip, description) values(%s, %s)
+            '''
+            cursor.execute(sql, i)
+
+        connection.commit()
+
+        print('english tip table에 데이터 추가 완료!')
+    except pymysql.Error as e:
+        print('에러 발생:', e)
+    finally:
+        cursor.close()
+        connection.close()
+
+if __name__ == "__main__":
+
+    insertWord()
+    insertSpeakWord()
+    insertTipWord()
 

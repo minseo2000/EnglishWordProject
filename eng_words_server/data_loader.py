@@ -7,13 +7,19 @@ def read_excel(data_path):
 
     sheet = workbook.active
 
+    word_list = []
+
     # 전체 시트의 데이터 읽기
     for row in sheet.iter_rows(values_only=True):
-        for cell_value in row:
-            print(f'{cell_value}', end='\t')
-        print()  # 줄 바꿈
+        temp_list = []
+        for cell_value in row[:2]:
+            temp_list.append(cell_value)
+        word_list.append(temp_list)
 
     # 워크북 닫기
     workbook.close()
+    return word_list
 
-print(read_excel('./sentence.xlsx'))
+
+if __name__ == '__main__':
+    print(read_excel('./sentence.xlsx'))
