@@ -1,9 +1,14 @@
 from flask import Flask
-
+import db
 
 def create_app():
 
     app = Flask(__name__)
+
+    db.makeEnglishWordDatabase()
+    db.makeEnglishWordTable()
+    db.makeEnglishSpeakTable()
+    db.makeEnglishTipTable()
 
 
     ######################################## routers #####################################################################################################################
